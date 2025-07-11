@@ -12,3 +12,23 @@ st.markdown("Welcome to the AlphaForgeFX Quant Strategy Builder & Backtester.")
 
 st.sidebar.header("Strategy Options")
 st.sidebar.text("Configure your model rules here.")
+if st.sidebar.button("🚀 Run Backtest"):
+    st.info("Running backtest, please wait...")
+
+    results = run_backtest(
+        ...
+    )
+
+    st.success("✅ Backtest Completed!")
+
+    # 📈 Equity Curve
+    st.subheader("📈 Equity Curve")
+    st.line_chart(results["equity_curve"])
+
+    # 📋 Strategy Metrics
+    st.subheader("📋 Strategy Performance")
+    st.write(results["metrics"])
+
+    # 🧾 Trade Journal
+    st.subheader("🧾 Trade Log")
+    st.dataframe(results["trades"])
